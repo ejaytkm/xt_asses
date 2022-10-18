@@ -1,6 +1,7 @@
 # Frontend Technical Assignment
 ## Requirements
-- Nodejs > v12+
+- Nodejs ^v12
+- React  ^18.2.0
 
 Live Demo
 
