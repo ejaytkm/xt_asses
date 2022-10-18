@@ -1,4 +1,6 @@
 # Frontend Technical Assignment
+## Requirements
+- Nodejs > v12+
 
 Live Demo
 
@@ -10,10 +12,10 @@ http://ejayxtasses.s3-website-ap-southeast-1.amazonaws.com/
 
 You need to develop a single-page application to browse the list of events.
 ### Requirements:
-- The application has to be developed with either ReactJS or AngularJS
-- The application has to follow the [layout](https://www.figma.com/file/THs8Bvwy9aiEGpSHG3WLYk/Babka-Tech-Assignment).
-- The application has to use publicly available [JSON file](https://raw.githubusercontent.com/xsolla/test-task-frontend/master/events.json) as a public API GET endpoint (if the file changes, the content of the page has to change as well)
-- The application has to be publicly available over the Internet, so you have to deploy it to any hosting you like or use the sandbox such as GitHub Pages, Repl.it, etc.)
+- ~~The application has to be developed with either ReactJS or AngularJS~~
+- ~~The application has to follow the [layout](https://www.figma.com/file/THs8Bvwy9aiEGpSHG3WLYk/Babka-Tech-Assignment).~~
+- ~~The application has to use publicly available [JSON file](https://raw.githubusercontent.com/xsolla/test-task-frontend/master/events.json) as a public API GET endpoint (if the file changes, the content of the page has to change as well)~~
+- ~~The application has to be publicly available over the Internet, so you have to deploy it to any hosting you like or use the sandbox such as GitHub Pages, Repl.it, etc.)~~
 
 ## Bonus Part
 Enhance the application you developed in the previous part. You can choose any feature you like most or all at once:
