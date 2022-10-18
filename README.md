@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Frontend Technical Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Demo
 
-## Available Scripts
+```shell
+http://ejayxtasses.s3-website-ap-southeast-1.amazonaws.com/
+```
 
-In the project directory, you can run:
+## Essential Part
 
-### `npm start`
+You need to develop a single-page application to browse the list of events.
+### Requirements:
+- The application has to be developed with either ReactJS or AngularJS
+- The application has to follow the [layout](https://www.figma.com/file/THs8Bvwy9aiEGpSHG3WLYk/Babka-Tech-Assignment).
+- The application has to use publicly available [JSON file](https://raw.githubusercontent.com/xsolla/test-task-frontend/master/events.json) as a public API GET endpoint (if the file changes, the content of the page has to change as well)
+- The application has to be publicly available over the Internet, so you have to deploy it to any hosting you like or use the sandbox such as GitHub Pages, Repl.it, etc.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Bonus Part
+Enhance the application you developed in the previous part. You can choose any feature you like most or all at once:
+- If the user reloads the page, save the favorite choice (a flag in the top-right corner of each card).
+- Make the layout responsive to the screen size.
+- Create an additional filter based on the user's favorite choice.
+- Make the application deploy automatically from your repository (using GitHub Actions or any other CI/CD tool)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Submitting your solution
+Please submit the repository with the source code of your solution and the link to the deployed application. Please ask the person who sent you this link if you have any questions regarding the assignment.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Good luck & Enjoy the Game**

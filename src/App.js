@@ -23,8 +23,6 @@ class Card extends React.Component {
       ...props
     };
 
-    // console.log(this.state.data)
-
     // This binding is necessary to make `this` work in the callback
     this.handleClick = this.handleClick.bind(this);
   }
@@ -128,8 +126,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.data)
-
     var filteredData = this.state.data.filter((data) => {
       let currentMonth = Moment(data.date, 'DD-MM-YYYY').month()
       if (
