@@ -3,78 +3,9 @@ import React from "react";
 import Moment from "moment";
 import "./App.css";
 
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-
+import Card from "./Card"
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-
-class Card extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      bookmarked: false,
-      id: "",
-      city: "",
-      date: "",
-      genre: "",
-      image: "https://via.placeholder.com/600x400/182c34",
-      name: "",
-      ...props
-    };
-
-    // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState((prevState) => ({ bookmarked: !prevState.bookmarked }))
-  }
-
-  handleClick() {
-    this.setState(prevState => ({
-      bookmarked: !prevState.bookmarked
-    }));
-    this.props.onFavouriteEvent(this.state.data.id)
-  }
-
-  render() {
-    let convertDate = this.state.data.date;
-    if (convertDate) {
-      convertDate = Moment(this.state.data.date, 'DD-MM-YYYY').format('DD')
-    }
-
-    let boomarkIcon
-    if (this.state.bookmarked) {
-      boomarkIcon = <BookmarkBorderIcon style={{fontSize: "30px", fill: "white"}}/>
-    } else {
-      boomarkIcon = <BookmarkIcon style={{fontSize: "30px", fill: "white"}}/>
-    }
-
-    return (
-      <div
-        style={{ backgroundImage: `url(${this.state.data.image})`}}
-        className="card"
-      >
-        <div className="card-event-date">
-          <span>{convertDate}</span>
-        </div>
-
-        <div className="card-event-name">
-          {this.state.data.name}
-        </div>
-
-        <div  className="action-bookmark">
-          <span
-            onClick={this.handleClick}
-            className="action-bookmark-icon">
-            {boomarkIcon}
-          </span>
-        </div>
-      </div>
-    )
-  }
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -84,10 +15,9 @@ class App extends React.Component {
       filteredData: [],
       favEventIds: [],
       cityList: [],
-      monthList: [1,2,3,4,5,6,7,8,9,10,11,12],
+      monthList: [1,2,3,4,5,6,7,8,9,10,11,12], // jan - dec available
       selectedCity: "", // string
       selectedMonth: "", // int - denotes month or string - denotes 'none' ~
-
     };
 
     this.handleFilterCity = this.handleFilterCity.bind(this);
@@ -102,6 +32,17 @@ class App extends React.Component {
     const cities = {}
     for (let i = 0; i < data.length; i++) {
       cities[data[i].city] = null
+    }
+
+    // Define local storage
+    let storageS = localStorage.getItem("settings")
+    let storageO = {
+      favEvent: {
+      }
+    }
+
+    if (!storageS) { // init
+      localStorage.setItem("settings", JSON.stringify(storageO))
     }
 
     // Set data
@@ -121,11 +62,18 @@ class App extends React.Component {
   }
 
   handleFavouriteEvent = (event) => {
-    console.log("Emitting favourite event", event)
-    // this.setState({language: langValue});
+    let storageS = localStorage.getItem("settings")
+    let storageO = JSON.parse(storageS)
+
+    storageO.favEvent[event.id] = event.v
+    localStorage.setItem("settings", JSON.stringify(storageO))
   }
 
   render() {
+    let storageS = localStorage.getItem("settings")
+    let {favEvent} = JSON.parse(storageS)
+
+    // filter -
     var filteredData = this.state.data.filter((data) => {
       let currentMonth = Moment(data.date, 'DD-MM-YYYY').month()
       if (
@@ -141,13 +89,28 @@ class App extends React.Component {
         this.state.selectedCity &&
         this.state.selectedCity !== data.city
       ) {
-        return false;
+        return false
       }
 
       return data
     });
 
+    // sort -
+    filteredData.sort((a, b) => {
+      let momentA = Moment(a.date, 'DD-MM-YYYY')
+      let momentB = Moment(b.date, 'DD-MM-YYYY')
+      return (momentA.isSameOrAfter(momentB)) ? 1 : -1
+    })
+
+    // build -
     const CardLoop = filteredData.map((data, index) =>{
+      if (favEvent[data.id]) {
+        data.bookmarked = favEvent[data.id]
+      } else {
+        data.bookmarked = false
+      }
+
+      // console.log("Lopp: ", favEvent)
       return <Card onFavouriteEvent={this.handleFavouriteEvent} key={data.id} data={data}/>;
     })
 

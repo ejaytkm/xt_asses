@@ -1,5 +1,5 @@
 # Frontend Technical Assignment
-## Requirements
+## Dev Requirements
 - Nodejs ^v12
 - React  ^18.2.0
 
@@ -20,7 +20,7 @@ You need to develop a single-page application to browse the list of events.
 
 ## Bonus Part
 Enhance the application you developed in the previous part. You can choose any feature you like most or all at once:
-- If the user reloads the page, save the favorite choice (a flag in the top-right corner of each card).
+~~- If the user reloads the page, save the favorite choice (a flag in the top-right corner of each card).~~
 - Make the layout responsive to the screen size.
 - Create an additional filter based on the user's favorite choice.
 - Make the application deploy automatically from your repository (using GitHub Actions or any other CI/CD tool)
