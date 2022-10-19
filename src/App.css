@@ -195,7 +195,6 @@ p {
 @media only screen and (max-width: 500px) {
   .App {
     padding: 20px;
-    height: 100vh;
   }
 
   .container {
@@ -216,6 +215,8 @@ p {
   .card-event-name {
     font-size: 32px;
     line-height: normal;
+    left: 20px;
+    bottom: 20px;
   }
 
   .card-event-date {
