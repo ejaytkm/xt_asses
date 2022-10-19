@@ -197,6 +197,10 @@ p {
     padding: 20px;
   }
 
+  .card {
+    background-position: center;
+  }
+
   .container {
     padding: 20px;
   }
