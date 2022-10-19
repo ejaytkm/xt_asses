@@ -22,17 +22,6 @@ class App extends React.Component {
 
     this.handleFilterCity = this.handleFilterCity.bind(this);
     this.handleFilterMonth = this.handleFilterMonth.bind(this);
-  }
-
-  async componentDidMount() {
-    let currentDate = Moment().format("MM");
-    const data = await fetch("https://raw.githubusercontent.com/xsolla/test-task-frontend/master/events.json")
-      .then((response) => response.json())
-
-    const cities = {}
-    for (let i = 0; i < data.length; i++) {
-      cities[data[i].city] = null
-    }
 
     // Define local storage
     let storageS = localStorage.getItem("settings")
@@ -43,6 +32,17 @@ class App extends React.Component {
 
     if (!storageS) { // init
       localStorage.setItem("settings", JSON.stringify(storageO))
+    }
+  }
+
+  async componentDidMount() {
+    let currentDate = Moment().format("MM");
+    const data = await fetch("https://raw.githubusercontent.com/xsolla/test-task-frontend/master/events.json")
+      .then((response) => response.json())
+
+    const cities = {}
+    for (let i = 0; i < data.length; i++) {
+      cities[data[i].city] = null
     }
 
     // Set data
